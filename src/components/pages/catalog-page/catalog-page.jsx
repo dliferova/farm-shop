@@ -8,7 +8,7 @@ import {
     FilterInput
 } from "./styles";
 
-function CatalogPage() {
+function CatalogPage({ products }) {
     return (
         <StyledCatalog>
             <LeftColumn>
