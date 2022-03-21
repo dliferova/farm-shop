@@ -1,5 +1,5 @@
 import React from "react";
-import Title, { TitleSize } from "../title/title";
+import Title, { TitleSize } from "/src/components/ui/title/title";
 import { Feature, Image, Owner, Header, Text } from "./styles";
 
 // Карточка
