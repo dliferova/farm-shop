@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Section } from "/src/components/styled";
 import { TextInput } from "/src/components/ui/text-input/text-input";
+import { Swiper } from "swiper/react";
 
 export const StyledCatalog = styled(Section)`
   display: flex;
@@ -31,3 +32,14 @@ export const Option = styled(Section)`
 export const FilterInput = styled(TextInput)`
   margin-bottom: 40px;
 `;
+
+export const ProductSwiper = styled(Swiper)`
+  width: 727px;
+
+  .swiper-pagination {
+    display: none;
+  }
+
+  .swiper-slide {
+    flex-shrink: 1;
+  }`;

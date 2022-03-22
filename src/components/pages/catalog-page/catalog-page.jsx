@@ -5,8 +5,15 @@ import {
     StyledCatalog,
     LeftColumn,
     Option,
-    FilterInput
+    FilterInput,
+    ProductSwiper
 } from "./styles";
+import ProductCard from "/src/components/ui/product-card/product-card";
+
+import { SwiperSlide } from "swiper/react";
+import SwiperCore, { Pagination, Mousewheel, Scrollbar } from "swiper/core";
+
+SwiperCore.use([Mousewheel, Pagination, Scrollbar]);
 
 function CatalogPage({ products }) {
     return (
@@ -26,7 +33,13 @@ function CatalogPage({ products }) {
                     <Button maxWidth>Купить</Button>
                 </Option>
             </LeftColumn>
-            <div>Слайдер с продуктами</div>
+            <ProductSwiper>
+                {products.map((product) => (
+                    <SwiperSlide key={product.id}>
+                        <ProductCard product={product} />
+                    </SwiperSlide>
+                ))}
+            </ProductSwiper>
         </StyledCatalog>
     );
 }

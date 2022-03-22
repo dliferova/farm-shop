@@ -5,12 +5,12 @@ import CatalogPage from "/src/components/pages/catalog-page/catalog-page";
 import { Main } from "./styles";
 
 // Обёртка для контента страниц
-function PageWrapper({ ...prop }) {
+function PageWrapper({ products }) {
   return (
     <>
       <Header />
       <Main>
-        <CatalogPage {...prop} />
+        <CatalogPage products={products} />
       </Main>
       <Footer />
     </>
