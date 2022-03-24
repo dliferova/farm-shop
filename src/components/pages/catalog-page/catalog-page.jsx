@@ -29,6 +29,15 @@ function CatalogPage({ products }) {
 
     const totalPrice = selectProducts.reduce((sum, product) => sum += product.price, 0);
 
+  const handleBuyClick = () => {
+    // eslint-disable-next-line no-alert
+    alert(`Спасибо за заказ, вы купили:\n${selectProducts.map(
+      (product) => `${product.name} - ${product.price} руб.\n`
+    )}
+    Итого: ${totalPrice} руб.
+    Доставка по адресу: ${address}.`);
+  };
+
     return (
         <StyledCatalog as="form">
             <LeftColumn>
@@ -53,10 +62,18 @@ function CatalogPage({ products }) {
                     </Title>
                     <FilterInput
                         value={address}
-                        placeholder="Введите адрес доставки"/>
+                        onChange={((e) => setAddress(e.target.value))}
+                        placeholder="Введите адрес доставки"
+                    />
                     <PriceLabel as="span">Цена</PriceLabel>
                     <PriceValue value={totalPrice}/>
-                    <Button maxWidth>Купить</Button>
+                    <Button
+                      maxWidth
+                      onClick={handleBuyClick}
+                      disabled={!(selectProductIds.length && address)}
+                    >
+                      Купить
+                    </Button>
                 </Option>
             </LeftColumn>
 
