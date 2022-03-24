@@ -39,6 +39,5 @@ export const Header = styled(Ul)`
 export const Content = styled.div`
   font-size: 14px;
   text-align: left;
-  max-height: ${(props) => props.$maxContentHeiht || "none"};
-  overflow-y: overlay;
+  margin-bottom: 14px;
 `;

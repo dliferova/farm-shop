@@ -5,6 +5,11 @@ import Title from "/src/components/ui/title/title";
 export const ProductCardWrapper = styled.div`
   display: grid;
   grid-template-columns: 248px 1fr;
+  column-gap: 20px;
+  min-height: 288px;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: ${(props) => props.theme.colorWhite};
 `;
 
 export const ProductImage = styled(Img)`
@@ -15,7 +20,6 @@ export const ProductImage = styled(Img)`
 
 export const ContentWrapper = styled.div`
   position: relative;
-  float: right;
   width: 417px;
   min-height: 248px;
   padding-bottom: 30px;

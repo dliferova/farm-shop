@@ -10,7 +10,6 @@ export const Feature = styled.article`
 `;
 
 export const Image = styled(Img)`
-  float: left;
   width: 56px;
   height: 56px;
   margin-right: ${(props) => props.theme.indent};
