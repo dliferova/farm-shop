@@ -23,6 +23,12 @@ function CatalogPage({ products }) {
     const [address, setAddress] = useState();
     const [selectProductIds, setSelectProductIds] = useState([]);
 
+    const selectProducts = selectProductIds
+      .map((id) => products
+        .find((product) => product.id === id));
+
+    const totalPrice = selectProducts.reduce((sum, product) => sum += product.price, 0);
+
     return (
         <StyledCatalog as="form">
             <LeftColumn>
@@ -49,7 +55,7 @@ function CatalogPage({ products }) {
                         value={address}
                         placeholder="Введите адрес доставки"/>
                     <PriceLabel as="span">Цена</PriceLabel>
-                    <PriceValue>1200</PriceValue>
+                    <PriceValue value={totalPrice}/>
                     <Button maxWidth>Купить</Button>
                 </Option>
             </LeftColumn>
