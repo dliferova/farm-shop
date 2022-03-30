@@ -20,14 +20,13 @@ export const TabButton = styled(Button)`
   ${(props) =>
     props.$isSelect
         ? css`
-          background-color: ${props.theme.panelBackgroundColor};
+          background-color: ${props.theme.backgroundColorBlue};
           border: 1px solid rgba(0, 0, 0, 0.1);
-          color: ${props.theme.colorWhite};
+          color: ${props.theme.fontColorBlack};
         `
         : css`
           background-color: ${props.theme.backgroundColorGray};
           border: 1px solid rgba(0, 0, 0, 0.1);
-          color: ${props.theme.fontColorBlack};
         `}
 `;
 

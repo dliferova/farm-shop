@@ -9,7 +9,9 @@ const links = [
     to: AppRoute.MAIN,
     item: <StyledButton link={AppRoute.MAIN}>Главная</StyledButton>
   },
-  { to: AppRoute.CATALOG, item: <Button link={AppRoute.CATALOG}>Купить</Button> }
+  {
+    to: AppRoute.CATALOG,
+    item: <Button link={AppRoute.CATALOG}>Купить</Button> }
 ];
 
 function Nav({ pageUrl }) {

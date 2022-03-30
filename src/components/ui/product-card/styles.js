@@ -16,6 +16,7 @@ export const ProductImage = styled(Img)`
   width: 248px;
   height: 248px;
   margin-right: 20px;
+  object-fit: cover;
 `;
 
 export const ContentWrapper = styled.div`
@@ -30,13 +31,22 @@ export const ProductTitle = styled(Title)`
   margin-bottom: 15px;
 `;
 
-export const Price = styled.span`
+export const PriceInfo = styled.span`
   position: absolute;
   bottom: 0;
   display: inline-block;
+`;
+
+export const Price = styled.span`
   padding: 4px 8px;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
+  line-height: 24px;
+`;
+
+export const Weight = styled.span`
+  font-size: 14px;
   line-height: 21px;
-  background-color: ${(props) => props.theme.backgroundColorBlue};
+  font-weight: normal;
+  color: ${(props) => props.theme.colorGrey};
 `;

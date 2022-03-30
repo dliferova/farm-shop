@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TabButton, Header, Content, TabListItem } from "./styles";
 
-function Tabs({ tabsList = [], maxContentHeiht }) {
+function Tabs({ tabsList = [], maxContentHeight }) {
     const [selectIndex, setSelectIndex] = useState(0);
 
     return (
@@ -24,7 +24,7 @@ function Tabs({ tabsList = [], maxContentHeiht }) {
                     </TabListItem>
                 ))}
             </Header>
-            <Content $maxContentHeiht={maxContentHeiht}>
+            <Content $maxContentHeight={maxContentHeight}>
                 {tabsList[selectIndex].content}
             </Content>
         </div>

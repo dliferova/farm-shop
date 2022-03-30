@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { P, Section } from "/src/components/styled";
-import aboutImage from "/src/assets/about.svg";
 
 export const StyledAbout = styled(Section)`
   position: relative;
@@ -20,9 +19,10 @@ export const StyledAbout = styled(Section)`
     display: block;
     content: "";
     width: 446px;
-    height: 563px;
+    height: 100%;
     margin: auto;
-    background-image: url(${aboutImage});
+    background-image: url("https://i.ibb.co/xCgHcv1/markus-spiske-s-Fyd-XGrt5-OA-unsplash.jpg");
+    background-size: cover;
   }
 `;
 
