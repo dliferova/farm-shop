@@ -1,11 +1,14 @@
-import styled, { css } from "styled-components";
-import { Section } from "/src/components/styled";
-import { TextInput } from "/src/components/ui/text-input/text-input";
+import styled, {css} from "styled-components";
+import {Section} from "/src/components/styled";
+import {TextInput} from "/src/components/ui/text-input/text-input";
 import checkboxSelect from "/src/assets/checkbox.svg";
 import Price from "/src/components/ui/price/price";
-import { Swiper } from "swiper/react";
+import {Swiper} from "swiper/react";
 
 export const StyledCatalog = styled(Section)`
+  position: absolute;
+  top: ${(props) => props.theme.headerHeight};
+  bottom: ${(props) => props.theme.footerHeight};
   display: flex;
   padding-top: 40px;
   padding-bottom: 0;
@@ -16,7 +19,7 @@ export const StyledCatalog = styled(Section)`
 export const LeftColumn = styled.div`
   width: 353px;
   padding-right: 20px;
-  overflow-y: scroll;
+  overflow-y: overlay;
   max-height: 100%;
 `;
 
@@ -74,17 +77,17 @@ export const CheckboxLabel = styled.span`
     height: 22px;
     width: 22px;
     ${(props) =>
-    props.$isChecked
+      props.$isChecked
         ? css`
-            background-color: #fc9b27;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            background-image: url(${checkboxSelect});
-            background-repeat: no-repeat;
-            background-position: center center;
-          `
+          background-color: #fc9b27;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          background-image: url(${checkboxSelect});
+          background-repeat: no-repeat;
+          background-position: center center;
+        `
         : css`
-            background-color: ${props.theme.backgroundColorGray};
-            border: 1px solid rgba(0, 0, 0, 0.1);
-          `}
+          background-color: ${props.theme.backgroundColorGray};
+          border: 1px solid rgba(0, 0, 0, 0.1);
+        `}
   }
 `;

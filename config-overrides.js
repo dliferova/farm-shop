@@ -1,9 +1,10 @@
-const { override, addWebpackAlias } = require("customize-cra");
+const {override, addWebpackAlias, useBabelRc} = require("customize-cra");
 
 const path = require("path");
 
 module.exports = override(
-    addWebpackAlias({
-        "/src": path.resolve(__dirname, "src")
-    })
+  addWebpackAlias({
+    "/src": path.resolve(__dirname, "src")
+  }),
+  useBabelRc()
 );
