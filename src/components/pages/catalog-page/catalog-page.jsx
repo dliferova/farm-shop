@@ -17,20 +17,21 @@ import popup from "../../layout/popup/popup";
 import ProductCardDetailed from "/src/components/ui/product-card-detailed/product-card-detailed";
 
 //Swiper Import
-import { SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination, Mousewheel, Scrollbar } from "swiper/core";
+import {SwiperSlide} from "swiper/react";
+import SwiperCore, {Pagination, Mousewheel, Scrollbar} from "swiper/core";
 import "swiper/swiper-bundle.min.css";
+
 SwiperCore.use([Mousewheel, Pagination, Scrollbar]);
 
 function CatalogPage({products}) {
   const [address, setAddress] = useState();
   const [selectProductIds, setSelectProductIds] = useState([]);
   const [swiperRef, setSwiperRef] = useState(null);
-  const [checkedProductCard, setCheckedProductCard] = useState(null);
+  const [productModalData, setProductModalData] = useState(null);
 
   useEffect(() => {
     if (!!swiperRef && selectProductIds.length === 0) {
-      swiperRef.slideTo(0,0);
+      swiperRef.slideTo(0, 0);
     }
   }, [swiperRef, selectProductIds])
 
@@ -40,7 +41,7 @@ function CatalogPage({products}) {
 
   const handleOnCheckboxProduct = (value, index) => {
     if (!selectProductIds.includes(value)) {
-      swiperRef.slideTo(index,0);
+      swiperRef.slideTo(index, 0);
     }
   }
 
@@ -56,7 +57,7 @@ function CatalogPage({products}) {
   };
 
   const handleOnProductCard = (product) => {
-    setCheckedProductCard(product)
+    setProductModalData(product);
   }
 
   const ProductCardDetailedPopup = popup(ProductCardDetailed);
@@ -106,7 +107,7 @@ function CatalogPage({products}) {
           spaceBetween={12}
           direction="vertical"
           slidesPerView="auto"
-          scrollbar={{ draggable: true }}
+          scrollbar={{draggable: true}}
           mousewheel
           pagination={{
             type: "fraction"
@@ -115,18 +116,22 @@ function CatalogPage({products}) {
         >
           {products.map((product) => (
             <SwiperSlide key={product.id}>
-              <ProductCard product={product} onClick={() => handleOnProductCard(product)}/>
+              <ProductCard
+                product={product}
+                onClick={() => handleOnProductCard(product)}
+              />
             </SwiperSlide>
           ))}
         </ProductSwiper>
 
       </StyledCatalog>
 
-      { checkedProductCard ?
+      {productModalData ?
         <ProductCardDetailedPopup
-          product={checkedProductCard}
+          onCloseClick={() => setProductModalData(null)}
+          product={productModalData}
         />
-          : null }
+        : null}
     </>
   );
 }
