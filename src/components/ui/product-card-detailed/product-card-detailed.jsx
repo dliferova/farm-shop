@@ -16,8 +16,9 @@ import Tabs from "../tabs/tabs";
 import QualityCertificate from "../quality-certificate/quality-certificate";
 import FavoriteButton from "../favorite-button/favorite-button";
 import Mailing from "../../blocks/mailing/mailing";
+import CloseButton from "../close-button/close-button";
 
-function ProductCardDetailed({ product }) {
+function ProductCardDetailed({ product, onClick }) {
   const tabsList = [
     {
       title: "Oписание",
@@ -38,6 +39,7 @@ function ProductCardDetailed({ product }) {
 
   return (
     <ProductCardDetailedWrapper>
+      <CloseButton onClick={onClick}/>
       <ProductCardDetailedHeader>
         <ProductImage src={product.image}/>
         <ProductAbout>

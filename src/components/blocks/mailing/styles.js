@@ -8,8 +8,8 @@ export const MailingSection = styled.section`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top left;
-  min-height: 280px;
-  padding: 40px;
+  min-height: 240px;
+  padding: 20px;
 `;
 
 export const MailingContent = styled.div`
@@ -27,7 +27,7 @@ export const MailInput = styled(TextInput)`
 
 export const StyledTitle = styled(Title)`
   max-width: 280px;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   text-align: center;
 `;
 

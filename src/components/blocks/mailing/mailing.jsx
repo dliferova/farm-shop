@@ -9,7 +9,7 @@ function Mailing(){
   return (
     <MailingSection>
       <MailingContent>
-        <StyledTitle as="h2">Подпишитесь на рассылку</StyledTitle>
+        <StyledTitle as="h3">Подпишитесь на рассылку</StyledTitle>
         <TextSubtitle>Скидки на акции только для подписчиков</TextSubtitle>
           <ButtonsGroup>
             <MailInput

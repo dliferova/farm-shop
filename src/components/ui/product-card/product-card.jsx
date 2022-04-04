@@ -2,9 +2,21 @@ import React from "react";
 import {TitleSize} from "/src/components/ui/title/title";
 import OptionsList from "/src/components/ui/options-list/options-list";
 import Tabs from "/src/components/ui/tabs/tabs";
-import {ProductCardStyled, ProductImage, ContentWrapper, ProductTitle, PriceInfo, Price, Weight, ProductCardWrapper} from "./styles";
+import {
+  ProductCardStyled,
+  ProductImage,
+  ContentWrapper,
+  ProductTitle,
+  PriceInfo,
+  Price,
+  Weight,
+  ProductCardWrapper
+} from "./styles";
 
-function ProductCard({product}) {
+function ProductCard({
+                       product,
+                       onClick
+                     }) {
   const tabsList = [
     {
       title: "Oписание",
@@ -19,12 +31,20 @@ function ProductCard({product}) {
       content: <OptionsList list={product.features}/>
     }
   ];
+
   return (
     <ProductCardStyled>
       <ProductCardWrapper>
-        <ProductImage src={product.image}/>
+        <ProductImage
+          src={product.image}
+          onClick={() => onClick()}
+        />
         <ContentWrapper>
-          <ProductTitle as="h3" size={TitleSize.SMALL}>
+          <ProductTitle
+            as="h3"
+            size={TitleSize.SMALL}
+            onClick={() => onClick()}
+          >
             {product.name}
           </ProductTitle>
           <Tabs maxContentHeiht={105} tabsList={tabsList}/>

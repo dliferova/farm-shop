@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Title, {TitleSize} from "/src/components/ui/title/title";
 import Button from "../../ui/button/button";
 import {
@@ -26,6 +26,13 @@ function CatalogPage({products}) {
   const [address, setAddress] = useState();
   const [selectProductIds, setSelectProductIds] = useState([]);
   const [swiperRef, setSwiperRef] = useState(null);
+  const [checkedProductCard, setCheckedProductCard] = useState(null);
+
+  useEffect(() => {
+    if (!!swiperRef && selectProductIds.length === 0) {
+      swiperRef.slideTo(0,0);
+    }
+  }, [swiperRef, selectProductIds])
 
   const selectProducts = selectProductIds
     .map((id) => products
@@ -47,6 +54,10 @@ function CatalogPage({products}) {
     Итого: ${totalPrice} руб.
     Доставка по адресу: ${address}.`);
   };
+
+  const handleOnProductCard = (product) => {
+    setCheckedProductCard(product)
+  }
 
   const ProductCardDetailedPopup = popup(ProductCardDetailed);
 
@@ -94,23 +105,28 @@ function CatalogPage({products}) {
         <ProductSwiper
           spaceBetween={12}
           direction="vertical"
-          slidesPerView="2"
+          slidesPerView="auto"
           scrollbar={{ draggable: true }}
           mousewheel
           pagination={{
-            type: "fanction"
+            type: "fraction"
           }}
           onSwiper={setSwiperRef}
         >
           {products.map((product) => (
             <SwiperSlide key={product.id}>
-              <ProductCard product={product}/>
+              <ProductCard product={product} onClick={() => handleOnProductCard(product)}/>
             </SwiperSlide>
           ))}
         </ProductSwiper>
+
       </StyledCatalog>
 
-      {/*<ProductCardDetailedPopup product={testItem}/>*/}
+      { checkedProductCard ?
+        <ProductCardDetailedPopup
+          product={checkedProductCard}
+        />
+          : null }
     </>
   );
 }
