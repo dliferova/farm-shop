@@ -23,7 +23,7 @@ import "swiper/swiper-bundle.min.css";
 
 SwiperCore.use([Mousewheel, Pagination, Scrollbar]);
 
-function CatalogPage({products}) {
+function CatalogPage({products, reviews}) {
   const [address, setAddress] = useState();
   const [selectProductIds, setSelectProductIds] = useState([]);
   const [swiperRef, setSwiperRef] = useState(null);
@@ -130,6 +130,7 @@ function CatalogPage({products}) {
         <ProductCardDetailedPopup
           onCloseClick={() => setProductModalData(null)}
           product={productModalData}
+          reviews={reviews}
         />
         : null}
     </>

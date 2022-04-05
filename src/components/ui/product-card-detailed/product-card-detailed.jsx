@@ -13,11 +13,11 @@ import {Price, ProductTitle, Weight} from "../product-card/styles";
 import Button from "../button/button";
 import OptionsList from "../options-list/options-list";
 import Tabs from "../tabs/tabs";
-import QualityCertificate from "../quality-certificate/quality-certificate";
 import FavoriteButton from "../favorite-button/favorite-button";
 import Mailing from "../../blocks/mailing/mailing";
+import ReviewsList from "../reviews/reviews-list";
 
-function ProductCardDetailed({ product }) {
+function ProductCardDetailed({ product, reviews }) {
   const tabsList = [
     {
       title: "Oписание",
@@ -31,8 +31,7 @@ function ProductCardDetailed({ product }) {
     {
       title: "Отзывы",
       content:
-        <>
-        </>
+        <ReviewsList reviews={reviews} />
     },
   ];
 
@@ -58,9 +57,7 @@ function ProductCardDetailed({ product }) {
 
       <ProductDetailedCardBody>
         <Tabs tabsList={tabsList} />
-        <QualityCertificate/>
       </ProductDetailedCardBody>
-
       <Mailing/>
 
     </ProductCardDetailedWrapper>
