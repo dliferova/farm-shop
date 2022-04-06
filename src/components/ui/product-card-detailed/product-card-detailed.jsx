@@ -14,7 +14,7 @@ import Button from "../button/button";
 import OptionsList from "../options-list/options-list";
 import Tabs from "../tabs/tabs";
 import FavoriteButton from "../favorite-button/favorite-button";
-import Mailing from "../../blocks/mailing/mailing";
+import Subscribe from "../../blocks/subscribe/subscribe";
 import ReviewsList from "../reviews/reviews-list";
 
 function ProductCardDetailed({ product, reviews }) {
@@ -58,7 +58,7 @@ function ProductCardDetailed({ product, reviews }) {
       <ProductDetailedCardBody>
         <Tabs tabsList={tabsList} />
       </ProductDetailedCardBody>
-      <Mailing/>
+      <Subscribe/>
 
     </ProductCardDetailedWrapper>
   )
