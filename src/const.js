@@ -1,4 +1,5 @@
 export const AppRoute = {
   MAIN: "/",
-  CATALOG: "/catalog"
+  CATALOG: "/catalog",
+  FAVORITES: "/favorites",
 };

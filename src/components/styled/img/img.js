@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const Img = styled.img`
-  width: 100%;
+  width: ${(props) => props.width}px;
+  object-fit: ${(props) => props.contain};
   height: auto;
-  object-fit: contain;
 `;
 
 export default Img;

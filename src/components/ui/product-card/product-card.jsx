@@ -13,10 +13,7 @@ import {
   ProductCardWrapper
 } from "./styles";
 
-function ProductCard({
-                       product,
-                       onClick
-                     }) {
+function ProductCard({ product, onClick }) {
   const tabsList = [
     {
       title: "Oписание",

@@ -2,7 +2,7 @@ import React from "react";
 import Title, { TitleSize } from "/src/components/ui/title/title";
 import { Feature, Image, Owner, Header, Text } from "./styles";
 
-// Карточка
+// Карточка товара
 function FeatureCard({
   title, // название особенности
   owner, // владелец особенности (обычный магазин, фермерский)

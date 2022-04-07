@@ -11,7 +11,12 @@ const links = [
   },
   {
     to: AppRoute.CATALOG,
-    item: <Button link={AppRoute.CATALOG}>Купить</Button> }
+    item: <Button link={AppRoute.CATALOG}>Купить</Button>
+  },
+  {
+    to: AppRoute.FAVORITES,
+    item: <StyledButton link={AppRoute.MAIN}>Главная</StyledButton>
+  },
 ];
 
 function Nav({ pageUrl }) {

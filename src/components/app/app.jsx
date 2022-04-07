@@ -4,6 +4,7 @@ import { AppRoute } from "/src/const";
 import PageWrapper from "/src/components/layout/page-wrapper/page-wrapper";
 import MainPage from "/src/components/pages/main-page/main-page";
 import CatalogPage from "/src/components/pages/catalog-page/catalog-page";
+import FavoritesPage from "/src/components/pages/favorites-page/favorites-page";
 import features from "/src/mocks/features";
 import products from "/src/mocks/products";
 import reviews from "/src/mocks/reviews";
@@ -19,12 +20,17 @@ export default function App() {
               <Switch>
                 <Route exact path={AppRoute.MAIN}>
                   <PageWrapper pageUrl={AppRoute.MAIN}>
-                    <MainPage features={features} />
+                    <MainPage features={features}/>
                   </PageWrapper>
                 </Route>
                 <Route exact path={AppRoute.CATALOG}>
                   <PageWrapper pageUrl={AppRoute.CATALOG}>
                     <CatalogPage products={products} reviews={reviews} />
+                  </PageWrapper>
+                </Route>
+                <Route exact path={AppRoute.FAVORITES}>
+                  <PageWrapper pageUrl={AppRoute.FAVORITES}>
+                    <FavoritesPage favorites={products}/>
                   </PageWrapper>
                 </Route>
               </Switch>

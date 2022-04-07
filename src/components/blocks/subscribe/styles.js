@@ -1,7 +1,16 @@
 import styled from "styled-components";
 import {TextInput} from "/src/components/ui/text-input/text-input";
 import Title from "../../ui/title/title";
-import {P} from "/src/components/styled";
+import {P , Input} from "/src/components/styled";
+
+//StyledEmailInput
+
+export const MailInput = styled(Input).attrs({
+  type: "email"
+})`
+  padding: 13px;
+  margin-right: 20px;
+`;
 
 export const MailingSection = styled.section`
   background-image: url("https://i.ibb.co/TH8s0Xz/markus-spiske-vrb-ZVy-X2k4-I-unsplash.jpg");
@@ -32,11 +41,7 @@ export const InputWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const MailInput = styled(TextInput)`
-  width: 380px;
-  margin-right: 20px;
-  border-radius: 16px;
-`;
+
 
 export const InputError = styled.span`
   color: red;

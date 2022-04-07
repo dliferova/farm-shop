@@ -19,8 +19,8 @@ class Subscribe extends React.Component {
     super(props);
 
     this.state = {
-      validateEmail: '',
-      isEmailInvalid: true,
+      email: '',
+      isEmailValid: null,
     }
 
     this.submitForm = this.submitForm.bind(this);
@@ -28,45 +28,34 @@ class Subscribe extends React.Component {
 
   //Проверяем валидность input
 
-  validateEmailInput(email) {
-    const correctPattern = emailReg.test(email);
-    if (correctPattern === true) {
-      this.setState({
-        validateEmail: email,
-        emailInvalid: false,
-      })
-    } else {
-      this.setState({
-        emailInvalid: true,
-      })
-    }
+  updateEmail(email) {
+    this.setState({
+      email: email,
+      isEmailValid: emailReg.test(email),
+    })
   }
 
   //Проверяем валидность input на изменение
 
   onHandleChange(e) {
-    this.validateEmailInput(e.target.value);
+    this.updateEmail(e.target.value);
   }
-
 
   //Отправка формы
 
   submitForm(e) {
-    console.log('Работаю')
     e.preventDefault();
-    this.isButtonDisabled = true;
+    // this.isButtonDisabled = true;
     const formData = {
-      validateEmail: this.state.validateEmail,
+      email: this.state.email,
     }
-
-    console.log(formData);
 
     this.onSuccessForm();
   }
 
   onSuccessForm() {
     // eslint-disable-next-line no-alert
-    alert(`Спасибо за подписку ${this.state.validateEmail}, обещаем отправлять только полезную информацию без спама`);
+    alert(`Спасибо за подписку ${this.state.email}, обещаем отправлять только полезную информацию без спама`);
   };
 
   render() {
@@ -80,7 +69,6 @@ class Subscribe extends React.Component {
               <InputWrapper>
                 <MailInput
                   id="subscribe-mail"
-                  type="email"
                   placeholder="Enter your email"
                   onChange={(e) => {
                     this.onHandleChange(e)
@@ -88,11 +76,12 @@ class Subscribe extends React.Component {
                   required
                 />
                 <label htmlFor="subscribe-mail"/>
-                {this.state.emailInvalid ? <InputError> &#9757; Некорректный email</InputError> : ''}
+                {this.state.isEmailValid != null && !this.state.isEmailValid ? <InputError> &#9757; Некорректный email</InputError> : ''}
               </InputWrapper>
               <Button
                 type="submit"
                 onClick={this.submitForm}
+                disabled={!this.state.isEmailValid}
               >
                 Подписаться
               </Button>
