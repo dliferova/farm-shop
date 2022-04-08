@@ -3,64 +3,56 @@ import {Img, Li, Ul} from "../../styled";
 import stars from "/src/assets/stars.svg";
 import starsActive from "/src/assets/stars-active.svg";
 
-
 export const ReviewsListStyled = styled(Ul)`
   list-style: none;
 `;
 
 export const ReviewItemStyled = styled(Li)`
   margin-bottom: 15px;
-`;
-
-export const ReviewItemUserInfo = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(134, 133, 136, 0.2);
+  padding: 10px 0;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 `;
 
-export const UserAvatarWrapper = styled.div`
-  background-image: url("/src/assets/avatar.svg");
-  background-size: 100%;
-  background-repeat: no-repeat;
+export const ReviewItemHeader = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  column-gap: 15px;
+  justify-items: start;
+  margin: 0 0 12px 0;
 `;
 
 export const UserAvatar = styled(Img)`
-  width: 35px;
-  height: 35px;
   border-radius: 50%;
-  margin-right: 20px;
+
+  grid-row: 1 / span 2;
+  align-self: stretch;
 `;
 
 export const UserName = styled.span`
   font-family: ${(props) => props.theme.fontFamily};
   font-size: 16px;
   color: ${(props) => props.theme.fontColorBlack};
-`;
 
-export const ReviewItemMainInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  grid-column: 2 / span 1;
 `;
 
 export const ReviewRating = styled.div`
-
-`;
-
-export const ReviewMessage = styled.q`
-  margin: 0;
-  font-style: italic;
-`;
-
-export const ReviewDate = styled.time`
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 
 export const RatingStars = styled.div`
   position: relative;
   display: block;
   font-size: 0;
+  width: 97px;
 
   &:before {
     content: "";
@@ -68,6 +60,10 @@ export const RatingStars = styled.div`
     height: 100%;
     background: url(${stars}) transparent no-repeat center;
   }
+`;
+
+export const ReviewDate = styled.time`
+
 `;
 
 export const RatingStarsSpan = styled.span`
@@ -80,9 +76,21 @@ export const RatingStarsSpan = styled.span`
 
   &:before {
     content: "";
+    width: 85px;
     display: inline-block;
     height: 100%;
     background: url(${starsActive}) transparent no-repeat center;
   }
 `;
 
+export const ReviewItemBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+
+export const ReviewMessage = styled.q`
+  margin: 0;
+  font-style: italic;
+  font-size: 16px;
+`;

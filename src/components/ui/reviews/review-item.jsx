@@ -2,10 +2,10 @@ import React from "react";
 import dayjs from 'dayjs';
 import {
   ReviewItemStyled,
-  ReviewItemUserInfo,
+  ReviewItemHeader,
   UserAvatar,
   UserName,
-  ReviewItemMainInfo,
+  ReviewItemBody,
   ReviewMessage,
   ReviewDate,
   ReviewRating,
@@ -13,7 +13,7 @@ import {
   RatingStarsSpan
 } from './styles';
 
-function ReviewItem({ review }) {
+function ReviewItem({review}) {
   const dateTime = dayjs(review.date).format('YYYY-MM-DD');
   const dateFormatted = dayjs(review.date).format('D.MM.YYYY');
 
@@ -22,23 +22,23 @@ function ReviewItem({ review }) {
   return (
     <ReviewItemStyled>
 
-      <ReviewItemUserInfo>
+      <ReviewItemHeader>
         <UserAvatar src={review.avatarUrl}/>
-        <UserName>{review.authorName}</UserName>
-      </ReviewItemUserInfo>
-
-      <ReviewItemMainInfo>
         <ReviewRating>
           <RatingStars>
-            <span style={{width: '80%'}}/>
-            <RatingStarsSpan className="visually-hidden">Rating</RatingStarsSpan>
+            <RatingStarsSpan style={{width: '80%'}}/>
+            <span className="visually-hidden">Rating</span>
           </RatingStars>
+          <ReviewDate>
+            <time className="reviews__time" dateTime={dateTime}>{dateFormatted}</time>
+          </ReviewDate>
         </ReviewRating>
+        <UserName>{review.authorName}</UserName>
+      </ReviewItemHeader>
+
+      <ReviewItemBody>
         <ReviewMessage>{review.reviewMessage}</ReviewMessage>
-        <ReviewDate>
-          <time className="reviews__time" dateTime={dateTime}>{dateFormatted}</time>
-        </ReviewDate>
-      </ReviewItemMainInfo>
+      </ReviewItemBody>
 
     </ReviewItemStyled>
   );
