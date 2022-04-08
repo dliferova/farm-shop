@@ -8,7 +8,9 @@ import {P , Input} from "/src/components/styled";
 export const MailInput = styled(Input).attrs({
   type: "email"
 })`
-  padding: 13px;
+  padding: 15px;
+  min-width: 198px;
+  background-color: transparent;
   margin-right: 20px;
 `;
 
@@ -41,11 +43,9 @@ export const InputWrapper = styled.div`
   flex-direction: column;
 `;
 
-
-
 export const InputError = styled.span`
   color: red;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: lighter;
 `;
 

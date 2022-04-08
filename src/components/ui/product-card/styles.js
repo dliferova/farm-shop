@@ -25,8 +25,8 @@ export const ProductCardWrapper = styled.div`
 `;
 
 export const ProductImage = styled(Img)`
-  width: 128px;
-  height: 128px;
+  width: 248px;
+  height: 248px;
   margin-right: 20px;
   object-fit: cover;
 `;
@@ -41,7 +41,6 @@ export const ContentWrapper = styled.div`
 
 export const ProductTitle = styled(Title)`
   margin-bottom: 15px;
-  text-align: center;
   font-weight: lighter;
 `;
 
@@ -52,8 +51,7 @@ export const PriceInfo = styled.span`
 `;
 
 export const Price = styled.span`
-  padding: 4px 8px;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   line-height: 24px;
 `;

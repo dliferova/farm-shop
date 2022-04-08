@@ -6,46 +6,32 @@ export const InputSize = {
   SMALL: "small",
 };
 
-const InputSizeValue = {
-  [InputSize.BIG]: {
-    fontSize: "18px",
-    lineHeight: "150%",
-    minWidth: "189px",
-  },
-  [InputSize.MEDIUM]: {
-    fontSize: "16px",
-    lineHeight: "140%",
-    minWidth: "169px",
-  },
-  [InputSize.SMALL]: {
-    fontSize: "14px",
-    lineHeight: "130%",
-    minWidth: "129px",
-  },
-};
-
 const Input = styled.input.attrs(props => ({
   type: "text",
 }))`
   display: flex;
   align-items: center;
-  color: rgba(134, 133, 136, 1);
-  outline: 1px solid #6693B9;
+  color: black;
+  border: 1px solid #DFD8C0;
 
   &:hover {
-    outline: 1px solid #2E78B7;
+    border: 1px solid #FFF5D6;
+  }
+
+  &:focus {
+    border: 1px solid #DFD8C0;
   }
 
   &:focus:invalid {
-    outline: 1px solid #F75531;
+    border: 1px solid #F75531;
   }
 
   ::placeholder {
-    color: rgba(134, 133, 136, 0.5);
+    color: rgba(134, 133, 136, 1);
   }
 
   &:focus:invalid::placeholder {
-    color: #F75531;;
+    color: #F75531;
   }
 `;
 

@@ -5,7 +5,7 @@ export const StyledButton = styled(Link)`
   display: block;
   min-height: 30px;
   padding: 0 24px;
-  min-width: ${(props) => (props.$maxWidth ? "100%" : "260px")};
+  min-width: ${(props) => (props.$maxWidth ? "100%" : "198px")};
   max-width: 700px;
   font-size: ${(props) => props.theme.fontSizeDefault};
   font-weight: 600;
@@ -14,7 +14,6 @@ export const StyledButton = styled(Link)`
   text-decoration: none;
   color: ${(props) => props.theme.textBlack};
   background-color: ${(props) => props.theme.buttonColor};
-  border-radius: 20px;
   border: none;
   background-image: none;
   box-shadow: none;

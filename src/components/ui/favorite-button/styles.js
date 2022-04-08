@@ -1,27 +1,24 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import favoriteIcon from "/src/assets/favorite-icon.svg";
+import favoriteIconActive from "/src/assets/favorite-icon-active.svg";
 
 export const FavoriteButtonStyled = styled(Link)`
   display: block;
   width: 45px;
   height: 45px;
-  border: 1px solid #000000;
-  border-radius: 50%;
   position: relative;
-
-  &:hover {
-    border: 2px solid #eb3f49;
-  }
+  margin-left: 20px;
 
   &:after {
     content: url(${favoriteIcon});
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%)translateY(-50%);
-    width: 20px;
-    height: 20px;
+    top: 0;
+    left: 0;
+  }
+
+  &:hover:after {
+    content: url(${favoriteIconActive});
   }
 `;
 
