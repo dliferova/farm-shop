@@ -1,7 +1,7 @@
 import React from 'react';
 import FavoriteCard from '/src/components/ui/favorite-card/favorite-card';
-import { Li } from '/src/components/styled';
-import { Favorites, FavoritesListStyled } from './styles';
+import {Favorites, FavoritesListStyled, FavoritesListItem, StyledTitle} from './styles';
+import Button from "/src/components/ui/button/button";
 
 function FavoritesList({ favorites }) {
   console.log("Cписок любимых продуктов");
@@ -9,14 +9,16 @@ function FavoritesList({ favorites }) {
 
   return (
     <Favorites>
+      <StyledTitle as="h2">Избранное</StyledTitle>
       <FavoritesListStyled>
         {favorites.map((item) => (
-          <Li key={item.id}>
+          <FavoritesListItem key={item.id}>
             <FavoriteCard key={item.id} productInfo={item} />
-          </Li>
+          </FavoritesListItem>
         ))
         }
       </FavoritesListStyled>
+      <Button>Показать еще</Button>
     </Favorites>
   );
 }

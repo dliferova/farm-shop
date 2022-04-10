@@ -5,7 +5,6 @@ import {StyledTitle} from "../../blocks/favorites-list/styles";
 function FavoritesPage({favorites}) {
   return (
     <>
-      <StyledTitle as="h2">Избранное</StyledTitle>
       {favorites ? (
         <FavoritesList favorites={favorites}/>
       ) : (
