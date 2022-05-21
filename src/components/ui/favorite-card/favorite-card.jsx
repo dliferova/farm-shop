@@ -7,7 +7,7 @@ import FavoriteButton from "../favorite-button/favorite-button";
 // Карточка товара
 function FavoriteCard({ productInfo }) {
 
-  console.log(productInfo);
+  console.log(productInfo.isFavorite);
 
   return (
     <FavoriteCardStyled>
@@ -18,7 +18,8 @@ function FavoriteCard({ productInfo }) {
             src={productInfo.image}
             alt={productInfo.name}
           />
-          <FavoriteButton/>
+
+           { productInfo.isFavorite ? <FavoriteButton/> : null }
         </FavoriteCardHeader>
 
         <FavoriteCardBody>

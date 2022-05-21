@@ -20,5 +20,7 @@ export const FavoriteButtonStyled = styled(Link)`
   &:hover:after {
     content: url(${favoriteIconActive});
   }
+
+
 `;
 
